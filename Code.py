@@ -65,12 +65,6 @@ if __name__ == "__main__":
 
     combined_circuit = entangled_circuit.compose(in_edge_circuit, qubits=[qubit_index_to_compose], inplace=False)
 
-    # Rest of the measurements and quantum operations...
+    # Rest of the modifications and optimizations...
 
-    qc_chain_data = {
-        'owner_data': owner_name,
-        'user_qubits': qc_chain.user_qubits
-    }
-
-    with open('qc_chain_results.json', 'w') as file:
-        json.dump(qc_chain_data, file)
+    # ... (rest of the code)
