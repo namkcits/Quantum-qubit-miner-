@@ -1,7 +1,9 @@
+import secrets
 import json
 from qiskit import QuantumCircuit, execute, Aer
 from datetime import datetime
-import secrets  # Don't forget to import the 'secrets' module
+from qiskit.providers.ibmq import IBMQ
+from qiskit.ignis.mitigation import complete_meas_cal
 
 NUM_QUBITS = 10  # Number of qubits for quantum communication
 IN_EDGE_NUM_QUBITS = 1  # Number of qubits in the in-edge circuit (modify as needed)
@@ -44,16 +46,18 @@ def create_entangled_qubits(num_qubits):
         circuit.cx(0, i)
     return circuit
 
-# ... (rest of the quantum functions: bb84_protocol, quantum_teleportation)
+# Rest of the functions...
 
 if __name__ == "__main__":
     qc_chain = QCChain()
 
     backend = Aer.get_backend('qasm_simulator')  # You can choose the backend here
 
-    # ... (rest of the initialization steps)
-
-    owner_name = "nam-kcits"  # Replace dynamically generated name with "nam-kcits"
+    while True:
+        owner_name = "nam-kcits"
+        if owner_name not in used_names:
+            used_names.add(owner_name)
+            break
 
     entangled_circuit = create_entangled_qubits(NUM_QUBITS)
     in_edge_circuit = QuantumCircuit(IN_EDGE_NUM_QUBITS)
@@ -61,9 +65,8 @@ if __name__ == "__main__":
 
     combined_circuit = entangled_circuit.compose(in_edge_circuit, qubits=[qubit_index_to_compose], inplace=False)
 
-    # ... (rest of the measurements and quantum operations)
+    # Rest of the measurements and quantum operations...
 
-    # Store QCChain data
     qc_chain_data = {
         'owner_data': owner_name,
         'user_qubits': qc_chain.user_qubits
