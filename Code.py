@@ -1,5 +1,3 @@
-import secrets
-import json
 from qiskit import QuantumCircuit, execute, Aer
 from datetime import datetime
 from qiskit.providers.ibmq import IBMQ
