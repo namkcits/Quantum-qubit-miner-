@@ -1,7 +1,5 @@
 from qiskit import QuantumCircuit, execute, Aer
 from datetime import datetime
-from qiskit.providers.ibmq import IBMQ
-from qiskit.ignis.mitigation import complete_meas_cal
 
 NUM_QUBITS = 10  # Number of qubits for quantum communication
 IN_EDGE_NUM_QUBITS = 1  # Number of qubits in the in-edge circuit (modify as needed)
